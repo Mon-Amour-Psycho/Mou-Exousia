@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Music Player</title>
+    <link rel="icon" type="image/x-icon" href="favicon1.png">
+    <style>
+        
+        body {
+            font-family: 'Cursive', sans-serif;
+            background-color: #ffdde1;
+            color: #d63384;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .song {
+            background: #ffafbd;
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(255, 0, 100, 0.2);
+            transition: transform 0.3s;
+        }
+        .song:hover {
+            transform: scale(1.05);
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .nextp {
+            margin-top: 30px;
+            float: none;
+        }
+        .nextp a {
+            color: #ffffff;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #ff4d6d;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .nextp a:hover {
+            background:#ff4d6d;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>💖 Our Memorable Songs 💖</h1>
+    <div class="container">
+        <div class="song">
+            <h3>Song 1</h3>
+            <h4>(Kangal Irandal)</h4>
+            <audio controls>
+                <source src="m1.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 2</h3>
+            <h4>(Yamunai Aatrile)</h4>
+            <audio controls>
+                <source src="m2.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 3</h3>
+            <h4>(Blue)</h4>
+            <audio controls>
+                <source src="m3.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 4</h3>
+            <h4>(Kanmani Anbodu)</h4>
+            <audio controls>
+                <source src="m4.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 5</h3>
+            <h4>(The Bus Diaries)</h4>
+            <audio controls>
+                <source src="m5.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 6</h3>
+            <h4>(MeenaKumari)</h4>
+            <audio controls>
+                <source src="m6.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 7</h3>
+            <h4>(Mamane Unna)</h4>
+            <audio controls>
+                <source src="m7.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class="song">
+            <h3>Song 8</h3>
+            <h4>(Agasatha)</h4>
+            <audio controls>
+                <source src="m8.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+    <div class="nextp">
+        <a href="tree.html">Last page polam vah 🫴</a>
+    </div>
+
+</body>
+</html>

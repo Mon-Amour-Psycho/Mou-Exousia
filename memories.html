@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherished Moments ✨</title>
+    <link rel="icon" type="image/x-icon" href="favicon2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #1a1a2e, #16213e);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 215, 0, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            transition: 0.5s;
+            border-bottom: 2px solid gold;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: gold;
+            text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.7);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .parallax::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide {
+            width: 100%;
+            display: none;
+        }
+
+        .slide:first-child {
+            display: block;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 215, 0, 0.7);
+            border: none;
+            color: black;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 1s;
+        }
+
+        .prev:hover, .next:hover {
+            background: gold;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+        
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .memory-box {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+        }
+        
+        .memory-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+        }
+        
+        .memory-box h2 {
+            color: gold;
+        }
+        
+        .memory-box p {
+            font-size: 20px;
+            font-style: italic;
+            color: white;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .back {
+            margin-top: 30px;
+            float: right;
+        }
+        .back a {
+            color: #16213e;
+            font-size: 1.5rem;
+            text-decoration: none;
+            padding: 12px 18px;
+            background: gold;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .back a:hover {
+            background: gold;
+            transform: scale(1.1);
+        }
+        .nextp {
+            margin-top: 30px;
+            float: left;
+        }
+        .nextp a {
+            color: #16213e;
+            font-size: 1.5rem;
+            text-decoration: none;
+            padding: 12px 18px;
+            background: gold;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .nextp a:hover {
+            background: gold;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <header>
+        <h1>💜 Memories Of My <i>Moulia</i> 💜</h1>
+    </header>
+
+    <div class="parallax" style="background-image:none";>
+        <img class="slide" src="love-background1.jpeg" alt="Memory 1">
+        <img class="slide" src="love-background2.jpeg" alt="Memory 2">
+        <img class="slide" src="love-background3.jpeg" alt="Memory 3">
+        <img class="slide" src="love-background4.jpeg" alt="Memory 4">
+        <img class="slide" src="love-background5.jpeg" alt="Memory 5">
+        <img class="slide" src="love-background6.jpeg" alt="Memory 6">
+        <img class="slide" src="love-background7.jpeg" alt="Memory 7">
+        <img class="slide" src="love-background8.jpeg" alt="Memory 8">
+        <img class="slide" src="love-background9.jpeg" alt="Memory 9">
+        <img class="slide" src="love-background10.jpeg" alt="Memory 10">
+        <img class="slide" src="love-background11.jpeg" alt="Memory 11">
+        <img class="slide" src="love-background12.jpeg" alt="Memory 12">
+        <img class="slide" src="love-background13.jpeg" alt="Memory 13">
+        <img class="slide" src="love-background14.jpeg" alt="Memory 14">
+        <img class="slide" src="love-background15.jpeg" alt="Memory 15">
+        <img class="slide" src="love-background16.jpeg" alt="Memory 16">
+        <img class="slide" src="love-background17.jpeg" alt="Memory 17">
+        <img class="slide" src="love-background18.jpeg" alt="Memory 18">
+        <img class="slide" src="love-background19.jpeg" alt="Memory 19">
+        <img class="slide" src="love-background20.jpeg" alt="Memory 20">
+        <img class="slide" src="love-background21.jpeg" alt="Memory 21">
+        <img class="slide" src="love-background22.jpeg" alt="Memory 22">
+        <img class="slide" src="love-background23.jpeg" alt="Memory 23">
+        <img class="slide" src="love-background24.jpeg" alt="Memory 24">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
+            
+            slides[slideIndex].style.display = "block";
+        }
+
+        setInterval(() => { changeSlide(1); }, 3000);
+    </script>
+
+    <section id="happy">
+        <div class="memory-box">
+            <h2>😊 Happy Moments</h2>
+            <p>"Moulia ✨, indha varthaiya solum bodhellam en face lah oruh punnagai, inam puriyaatha vekam 😳, indha varthaikum enakuh avalav pinnaipuh undagituh idhuvarah oru ayiram muraiyatum indha perah sollirupaen, solli konjirupaen, rasichirupaen ☺️. Unnah patha andha nodi naan idha edhirpakalah indha relationship ah ninaichi kuda paakalah, Anah ipo nee enoda moulia 😳. Enalah kandipah solah mudiyum unoduh nadatha andha mani thuligal dhan en vazhkaiyoda adhistamanah tharunam, namaloda ovoruh naalum enkannukuh vandhutuh pogudhu unnoda alavillaa pechi 😍, siripuh 😁, kelithanam 😅, meeratal 😶‍🌫️, paasam 😘, akarai 🥰, vekkam 😳. Manasulah padhija unoda mugam 🙎🏻‍♀️, rendu kannuh 👀 adhu neraiya sollum 😍 anah adhulah naan adhigama paathadhu vekkam dhan 🥰. Moulia ✨, now I agreed with once you said, anaikuh soniyeh we didn't know well about eachother how can I have a such divine love nuh, there was a point but I can feel you more now and I can feel the love between us grows 💗. Idhuvarai enalah innaikuh unnah evalav love panah mudiyum nuh mattum dhan yosichen, aanah ipo naal agah naal agah un melah naan over craze agitaen 🧟‍♂️. Epovum yellathaiyum varthaiyalah sollirah mudiyum nuh ninaichaen anah indha unarva thandu nee en vadhathayeh jejitah 🥴, Unalah naan marnadhulaiyeh moonuh periya saathanai solatah onuh ennah vekkah 😳padah vacha, aporam unah enkitah expose pani unakuh theriyamaley enah kadhalikah 🫱🏻‍🫲🏽 vacha adhoda mukiyama sila porupah enah sindhika 😌vachirukah(Including dish wash panuradhu 🥲). Neeyeh enah kalyanam panikoh yaarkitayum kuduthuraadha ☺️. 💕"</p>
+        </div>
+    </section>
+    
+    <section id="sad">
+        <div class="memory-box">
+            <h2>😢 Tough Times</h2>
+            <p>"Namakuh complications enah konjamah irukuh, it's a ton of shots😬. So naan ingah polambah poradhu illah adha en chellam pannuh, adha solve panurah velaiyah inime naan paakaen 😉. Evalav kastam vandhalum seri enaikum kalaga bayapaduh adhu thapuh illah aanah hope matum vituradha naan eppavum unkuda dhana irukaen, epovum irukavum seivaen 🫱🏻‍🫲🏽. Enah enakuh silah neram kobam vandhuchi nah ilah emotional agitaen nah olarah start paniruvaen tense lah apomatum konjam thagikoh konjam thelijadhum naanae namalah safe ah paathupaen ! 😁 Nee enakuh kidacha dheivadha di avalav seekrama lah endha problem kagavum ilah kobathukagavum unnah viturah maataen, unnah mari enakuh papa tharah varah unnah tension agamah pathukah try panuraen 🤞🏼, Enah edhatum yosichi bayapadureeyah edhu vandhalum 'onnah paathukalam' indha varthaikuh neraiya power unduh 🔥.  Namah oruh nallah job mattum pick panitom aporam onnah adivagah easy irukum so let's focus on that 🤖 ! Romba easy ah serdhutom nah nama pasagalukuh enah kadha solah mudiyum bore adikadhu 🥱, Varnam ayiram mari namah story avagalah inspire pannah vendam, It will be ✨ and I have a secret do you wanna know that, I love you 😘 and I knew you love me 🥰. Moulia evalav kastam vandhalum enah nallah pathukoh 🤗, naanum unnah nallah pathukiraen 🫂💖."</p>
+        </div>
+    </section>
+    
+    <section id="missing">
+        <div class="memory-box">
+            <h2>💭 Missing You</h2>
+            <p>"Unnah naan evalav miss panuraen nuh solanum nah nee en pakathulaiyeh irukurah mari thonah start agiruchi ipolah un pirivuh enah avalav koludhu🥹, endha kootathulaiyum unnah dhan theduraen nee irukamaatah nuh therijum, endha ponnah paathalum un jadah irukanuh paakaen anah enah pannah yellarum en moulia ah agirumatagaleh❤️. Enakuh un kuda vidha vidhamah vaazhanum moulia unah thookiteh suthanum 🫂, un madilah dhan thooganum 😪, unakuh vidha vidhamah samachi utanum 😋, juice potuh kudukanum, thalakati vidanum 💆🏼‍♀️, nail polish potuh vidanum💅🏼, megandhi vaichi vidanum, un periods apolah unkudave irukanum mood swings lah unkittah thituh vaaganum 🥲, epovum pollah nee enah meeratikiteh irukanum ! Un paatah kekanum 🥰, pillow mari unnah kattikituh thooganum 🫂, nee pesuradhellam ketukiteh irukanum 😵‍💫, un aasaigalah neravethanum 🤞🏼, un dream ah nee achieve panna othasaiyah irukanum ☺️🫱🏻‍🫲🏽. Ippadi neriyah irukuhh un theatre plans and such more thing"</p>
+        </div>
+    </section>
+    
+    <canvas class="floating-hearts"></canvas>
+    
+    <script>
+        const canvas = document.querySelector('.floating-hearts');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let hearts = [];
+        class Heart {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 10 + 5;
+                this.speedY = Math.random() * 1 + 0.5;
+            }
+            update() {
+                this.y -= this.speedY;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 215, 0, 0.6)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hearts.forEach(heart => {
+                heart.update();
+                heart.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        for (let i = 0; i < 50; i++) hearts.push(new Heart());
+        animate();
+    </script>
+    <div class="back">
+        <a href="index.html">Pinokki Polamah 😏</a>
+    </div>
+    <div class="nextp">
+        <a href="tree.html">Namah Love Timeline Paakeeya 👀</a>
+    </div>
+</body>
+</html>

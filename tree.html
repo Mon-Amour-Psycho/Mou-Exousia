@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Timeline</title>
+    <link rel="icon" type="image/x-icon" href="favicon1.png">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+            font-family: 'Cursive', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            color: white;
+        }
+        .tree-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .tree {
+            position: relative;
+            width: 8px;
+            height: 4100px;
+            background: brown;
+            border-radius: 5px;
+        }
+        .branch {
+            position: absolute;
+            width: 180px;
+            height: 5px;
+            background: brown;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .left { left: -180px; }
+        .right { right: -180px; }
+        .note {
+            position: absolute;
+            background: rgba(255, 211, 182, 0.9);
+            padding: 12px;
+            border-radius: 12px;
+            width: 140px;
+            text-align: center;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #663399;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .note:hover {
+            transform: scale(1.15);
+            background: #ffaaa5;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+        .popup button { margin-top: 10px; }
+        #counter { font-size: 20px; margin: 20px 0; }
+        .falling-flower {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh) translateX(10px); opacity: 1; }
+            to { transform: translateY(100vh) translateX(-10px); opacity: 0; }
+        }
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #ff1e50;
+            transform: scale(1.1);
+        }
+        .nextp {
+            margin-top: 30px;
+            float: left;
+        }
+        .nextp a {
+            color: #ffffff;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #ff4d6d;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .nextp a:hover {
+            background:#ff4d6d;
+            transform: scale(1.1);
+        }
+        .nextb {
+            margin-top: 30px;
+            float: none;
+        }
+        .nextb a {
+            color: #ffffff;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #ff4d6d;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .nextb a:hover {
+            background:#ff4d6d;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="home-music.mp3.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <h1>Our Love Timeline ❤️</h1>
+    <div id="counter"></div>
+    <div class="nextb">
+        <a href="music.html">🎵 Play Music</a>
+    </div>
+    
+    <div class="tree-container">
+        <div class="tree">
+            <div class="branch left" onclick="showPopup('Here the magic unfolded 💘', 'Love you so much, dear!')" style="top: 50px;">
+                <div class="note">Alpha ✨</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 1 - Avaladhu vizhigalal irkapataen 👀', '(28/11/2024) This is where my heart first started beating for her!')" style="top: 100px;">
+                <div class="note">Day 1 - Our First Sight 👀</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 2 - Kadhal Thulirthadhu 💕', '(29/11/2024) Andha iravu 🌕 oruh nadai payanathoduh thodagiyadhu namadhu kadhal kadhai! 🦌')" style="top: 200px;">
+                <div class="note">Day 2 - Lightning struck ⚡</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 3 - Kadhaludan Kadandhu Sendraen 🫠', '(30/11/2024) Irundrum mei silukiradhu, Andru nee kadandha nodiyai enni! 🍃☔. The toughest bye I ever said 🥲')" style="top: 250px;">
+                <div class="note">Day 3 - Our First Bye 👋</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 4 - Kadhaitha Nodigal 💌', '(01/12/2024) Tholaipesiyudan kadhal vasapattah manithuligal...💘')" style="top: 300px;">
+                <div class="note">Day 4 - Bonjour 💫</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 5 - Azhaguh Soolndha Malaipozhudhu 🌆', '(02/12/2024) Punagaiyudan unadhu kadharal(retest) 😄')" style="top: 350px;">
+                <div class="note">Day 5 - Your First Lament 🙃</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 6 - Meendum Sandhithukolah Asai 💗','(03/12/2024) Namai serah thoondiyah iravuh 😄')" style="top: 400px;">
+                <div class="note">Day 6 - Our First Excitement 💗</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 7  - En Kadhaliyin Padalil nayathen 😻','(04/12/2024) Unadhu padalal ennai mounamakinai 💖')" style="top: 450px;">
+                <div class="note">Day 7 - Madness Of Your Voice 🎶 </div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 8 - Punnaigalil Ennai Sitharadithal💓','(05/12/2024) Puyalukuh pin aravanaipuh 🙃')" style="top: 500px;">
+                <div class="note">Day 8 - My First Shock 🫨 </div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 9 - Mugam Kaanah Thavithaen 🤩','(06/12/2024) Ondranah iravuh, Unnudan en iravuh 🥰')" style="top: 550px;">
+                <div class="note">Day 9 - Our First Video Call 😍</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 10 - Disney Saga ✨','(07/12/2024) Will you hold my hand, Princess💝')" style="top: 600px;">
+                <div class="note">Day 10 - Our First Story 💖</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 11 - Exam Strikes 😐','(08/12/2024) Kalagiya neeyum un meedhu kadhaludan naanum💟')" style="top: 650px;">
+                <div class="note">Day 11 - Exam Strikes 😐</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 12 - Thabagal 🥲','(09/12/2024) Nammah ondra partha mudhal kadhal kadhai 💫')" style="top: 700px;">
+                <div class="note">Day 12 - Kadhaipomah Begins 😍</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 13 - Unadhu Mudhal thervuh🙃','(10/12/2024) Iravuh thookam indri kalai mayakam 🥲')" style="top: 750px;">
+                <div class="note">Day 13 - Exam On Board 🙃</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 14 - Edhirpaarah Unarvugal 🥰','(11/12/2024) Enakagah nee unakagah naan 💓')" style="top: 800px;">
+                <div class="note">Day 14 - Unexpected Things ☔</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 15 - Thervil Oruh Kadhal Kannah 💬','(12/12/2024) Naan indru nee illai 😗')" style="top: 850px;">
+                <div class="note">Day 15 - Dream At Exam Hall 🥰</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 16 - Naan Oruh Kaviganagah 😍','(13/12/2024) Ennai kadhalanagah 😍 matrum alah avaluketra kaviganagavum maatrinaal 🥰')" style="top: 900px;">
+                <div class="note">Day 16 - My First Poem 💞</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 17 - Mudhal Yekkam 😶‍🌫️','(14/12/2024) Kadhalin kalabathai kanden 🥹')" style="top: 950px;">
+                <div class="note">Day 17 - First Longing 😓</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 18 - En Kadhaliyin Mudhal Kobam 🫨','(15/12/2024) Avalin mudhal muraipuh 😗')" style="top: 1000px;">
+                <div class="note">Day 18 - Argument On Line 😏</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 19 - Avalum Samayalum Naanum 🔪','(16/12/2024) Ennai vitukaranagah thayar seidhal 🥲')" style="top: 1050px;">
+                <div class="note">Day 19 - Your First Recipe 👩‍🍳</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 20 - Kadhalil Kalavaram 😓','(17/12/2024) Avalin ulagai kandu viyadhen 😲')" style="top: 1100px;">
+                <div class="note">Day 20 - Gossips At Hospital 🫨</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 21 - Pannaiyarum Padminiyum 🥰','(18/12/2024) Namakanah oruh kadhal kadhaiyai ninaitha iravu 🌝')" style="top: 1150px;">
+                <div class="note">Day 21 - Dream To Be Together 💖</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 22 - Kadhal Kaichal 🤒','(19/12/2024) Kadhalal kaayah pattuh kadhaliyal thetrapattaen 🥰')" style="top: 1200px;">
+                <div class="note">Day 22 - Love Fever 🤒</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 23 - Avalidam Naan 😽','(20/12/2024) Kalam muluvadhum avali ninaikum alavuh kadhal konden ❤️‍🔥')" style="top: 1250px;">
+                <div class="note">Day 23 - I Become A Pookie 🎀</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 24 - Thendralil Vandha Nesam 🥰','(21/12/2024) Enakuh kadhaludan padam katruthandhai 💗')" style="top: 1300px;">
+                <div class="note">Day 24 - She Made Me Strong 💪</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 25 - Yaro Avan Yaroh 🫨','(22/12/2024) Avalukuh kidaitha sorpolivuh, avalai moolgadithathu 💧')" style="top: 1350px;">
+                <div class="note">Day 25 - We Got Sick 🤧</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 26 - Enakagah Oruh Paadal 📘','(23/12/2024) Enai kondru thinnadhu avaladhu payapum, paadalum 🥶')" style="top: 1400px;">
+                <div class="note">Day 26 - She Gave Me Blue 💙</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 27 - Kadavul Madiyil Naan Avalai Enni 🤗','(24/12/2024) Marakah mudiyavillai kadhaliye, unnai eni naan andha kadalai rasitha iravai 🌙')" style="top: 1450px;">
+                <div class="note">Day 27 - Promise At Beach 🏖️</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 28 - Enai Poruthukondal ❄️','(25/12/2024) Enadhu mutal thanathaiyum salithukondai 🤗')" style="top: 1500px;">
+                <div class="note">Day 28 - Merry Christmas 🎄</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 29 - Avalukagah Kathirudhaen 💌','(26/12/2024) Aval Enaval 🤗')" style="top: 1550px;">
+                <div class="note">Day 29 - Love With Rosery 💌</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 30 - Kanmani Anbodu Kadhalan ❣️','(27/12/2024) Madhimayaginaen avalin anbil ❣️')" style="top: 1600px;">
+                <div class="note">Day 30 - She Gave Me Rose 🌹</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 31 - Kalabah Kadhali 😘','(28/12/2024) Avalin ninaivil thukam iladhen 😫')" style="top: 1650px;">
+                <div class="note">Day 31 - Missed My Angel 🧚‍♀️</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 32 - Aval Penmaiyin Oruh Pagathai Kanden 😢','(29/12/2024) Unnai Kannin mani pol kanah yeginaen 🤗')" style="top: 1700px;">
+                <div class="note">Day 32 - She Got Pain 😢</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 33 - Avalukagah Kan Kalaginaen 🥹','(30/12/2024) Karthi kittah ennai patri kadhaithal 😄')" style="top: 1750px;">
+                <div class="note">Day 33 - My Girl 😘</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 34 - Pudhiyah Varudathainoki Naam 🫂','(31/12/2024) Ondra oruh mudivuh 🤗')" style="top: 1800px;">
+                <div class="note">Day 34 - With Her ❣️</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 35 - Puthandin Mudhal Naal Idhu 🎆','(01/01/2025) Unnai Epoludhum kai vidamaaten, en kanmaniyeh! 🤞')" style="top: 1850px;">
+                <div class="note">Day 35 - New Year Rumbles 🎆</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 36 - Kanne Kalaimane 🥹','(02/01/2025) En anbey, nee kalagah kudadhu 🫂')" style="top: 1900px;">
+                <div class="note">Day 36 - Uncle Rocked 🦂</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 37 - Kaalam Kadandha Nilaikum Kadhalagah Aasai 🥹','(03/01/2025) Padikadhadhu oruh kutham enah enai kollah partha thangam en moulia 🥹🥲')" style="top: 1950px;">
+                <div class="note">Day 37 - Idea Of RajMahal 🥲</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 38 - Unai Kanamal Naan 🥹','(04/01/2025) En aayul kalam varai nee vendum, enodu 🤗')" style="top: 2000px;">
+                <div class="note">Day 38 - Wound Of Her 😔</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 39 - Marapathu Illai Nenje 😽','(05/01/2025) Ennai yenga vitai 🥲')" style="top: 2050px;">
+                <div class="note">Day 39 - Not Enough 🗣️</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 40 - Irava Pagalah 😫','(06/01/2025) Katrum kandadhu en kadhalin kathirupai 🥲')" style="top: 2100px;">
+                <div class="note">Day 40 - Day And Night 😫</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 41 - Iruvarin Thukkam 🫂','(07/10/2025) Padukaiyilum avaladhu moochi kaatrai unardhen 🥰')" style="top: 2150px;">
+                <div class="note">Day 41 - Endless Call 😉</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 42 - Remo Ulagil Oruh Naal 🥰','(08/01/2025) Unnah yaen ivalav pidipathu endru puriyavillai moulia, 😘')" style="top: 2200px;">
+                <div class="note">Day 42 - Status Mania 🥰</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 43 - Orey Kannah 🫂','(09/01/2025) Orey kannah, Orey vazhvu, Orey kadhal, unudan vaazha aasai 🫠')" style="top: 2250px;">
+                <div class="note">Day 43 - Missed My Tharkkuri 😘</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 44 - Vellaiyil Kannokinom 🤖','(10/01/2025) Iruvarum oruvarai oruvar thitikondrom 😽')" style="top: 2300px;">
+                <div class="note">Day 44 - Engineers On Flow 🤖</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 45 - Kadhaliyin Chellam Miratalil Naan 💕','(11/01/2025) Enai mudhal muriyaga, orimaiyagah azhaithal 🩷')" style="top: 2350px;">
+                <div class="note">Day 45 - Charming Of Love 💕</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 46 - Aravanaikah Iyalah Kadhalan 🥺','(12/01/2025) Avalai anaithu kodeh, thalata virumbinaen 🥲')" style="top: 2400px;">
+                <div class="note">Day 46 - She Fell Ill 🥺</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 47 - Manadhai Marudhaga Anupinaen 🌬️','(13/01/2025) Kadhaliyin karam serah yeginaen 🥺')" style="top: 2450px;">
+                <div class="note">Day 47 - Medicine Mail 💊</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 48 - Mouliavin Kural Kekka Yekkam 😣','(14/01/2025) Oru murai unadhu kural kekkah, thuditha tharunam 😭')" style="top: 2500px;">
+                <div class="note">Day 48 - Longed For Each Other 😭</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 49 - Kadhalin Yetra Thalvu 🤖','(15/01/2025) Iruvarum oruh murai kanvomah 🥺')" style="top: 2550px;">
+                <div class="note">Day 49 - Phase Of Missing Her 🥺</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 50 - Kadhalin Thadumaatram 🥴','(16/01/2025) Unnai kanavilum ilakamaataen en moulia ✨')" style="top: 2600px;">
+                <div class="note">Day 50 - Uncle Rocked Again 🥴</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 51 - Avalai Serah Enni 🩷','(17/01/2025) Enna naan seiven unnoduh serah ✨')" style="top: 2650px;">
+                <div class="note">Day 51 - Flu By Travel 🚌</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 52 - Manasuh Odithu Ponnaen 💔','(18/01/2025) Mounathal ennai thetrinaal ❤️‍🩹')" style="top: 2700px;">
+                <div class="note">Day 52 - Love And War 🪖</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 53 - Muthathai Killi Thandhal 😚','(19/01/2025) Avalida irundhu modhal mutha emoji petraen 🥰')" style="top: 2750px;">
+                <div class="note">Day 53 - Shyness OverLoad 😘</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 54 - Avalukagah Irupaen 🩶','(20/01/2025) Avalukagah edhaiyum seivaen, enavalukagah 💜')" style="top: 2800px;">
+                <div class="note">Day 54 - Anyhting For Her 🥰</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 55 - En Dhevathai Punnagaithadhu 😁','(21/01/2025) Avalin kadhal vendi ninaen, en aayil muluvadhumkaagah 🥰')" style="top: 2850px;">
+                <div class="note">Day 55 - Heart Felt Light 🪄</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 56 - Unnodu Naan ✨','(22/01/2025) Thadaigalum thandi varuvaen unnoduh naan vazha! 💓')" style="top: 2900px;">
+                <div class="note">Day 56 - Our Hearts Ached ❤️‍🩹</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 57 - Enakagah Aval Ange 😚','(23/01/2025) Ennai thagah, enakagah aval 💞')" style="top: 2950px;">
+                <div class="note">Day 57 - Just For Me 😘</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 58 - Avalukagah Aval 🧚‍♀️','(24/01/2025) Avalin andha kuralukuh adimai aanaen 😅')" style="top: 3000px;">
+                <div class="note">Day 58 - She Wandered Far 💞</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 59 - Yekkathil Manam Sorthaen 😥','(25/01/2025) Avalathu paatham thoda yeginaen 🫠')" style="top: 3050px;">
+                <div class="note">Day 59 - Winced In Pain 😟</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 60 - Thunaiyagah Nee 🫱🏻‍🫲🏽','(26/01/2025) Sogagal unai uranga vittah valliyudan naan 🙃')" style="top: 3100px;">
+                <div class="note">Day 60 - Smile In Pain 🙃</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 61 - Avalin Vazhiyai Enni Vaadinaen 🫠','(27/01/2025) Vazhiyai poruthu kondu nee anguh urangi vidalaam aanal un vazhiyai unartha naan evaruh uraguvaen 🥺')" style="top: 3150px;">
+                <div class="note">Day 61 - Pain Of Migraine 🥺</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 62 - Enakum Kadhal Mayakam 🪄','(28/01/2025) Vazhiyengum thedinaen en manadhai kavarthaval mugathai 😍, Aanal natchathiragal matumae aval azhagai iduh seiyadha mudithadhu ✨')" style="top: 3200px;">
+                <div class="note">Day 62 - Love Cravings 🦥❣️</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 63 - Idaiveligal Kuraiya Vendi Naan 😶‍🌫️','(29/01/2025) Unnidam irundhu kadhalai aadaiya kadinamagah irupinum 😩, un inithana anbu en meendum meendum adhai muyarchikah thoondugiradhu 😃💖')" style="top: 3250px;">
+                <div class="note">Day 63 - Winning Her Heart 💕</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 64 - Avalin Kaadhal 💗, Enadhu Balam 😄','(30/01/2025) Thuvandu ponnah nodiyilum uyirtheludhaen, avalin siripai ninaivukurndhu 🐦‍🔥')" style="top: 3300px;">
+                <div class="note">Day 64 - She's My Light ☀️</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 65 - Kan Thirandhum Kanavu Kondaen 😳','(31/01/2025)Aval ennai vittuh vilagi irundhum, Aval ninivuh ennai vittuh vilagavillai 💓')" style="top: 3350px;">
+                <div class="note">Day 65 - Awaken In Her Memories 😋</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 66 - Avalin Vetri Malardhadhu 🔥','(01/02/2025) Palarin paaduh patrah vetri avaladhu iyalbanah vetri ❤️‍🔥')" style="top: 3400px;">
+                <div class="note">Day 66 - She Shines ✨</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 67 - Enadhu Aatral Moulia 💗','(02/02/2025) Udal nogah ulaithaen, manadhu niraidhadhu en ulaipaal allah avaldhu ullathal 💓')" style="top: 3450px;">
+                <div class="note">Day 67 - Mou Exousia ❣️</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 68 - Kadhaliyal Oruh Kaayam 🤕','(03/02/2025) Ulagil palamurai thotru irukaen aanal avalin adhistathil thotradhe en manadhai vaatiyadhu 🥺')" style="top: 3500px;">
+                <div class="note">Day 68 - Her Words, My Wounds ❤️‍🩹</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 69 - Azhagiya Uraiyadal 😊','(04/02/2025) Manadhinul innoruh manadhai kandaen 💕')" style="top: 3550px;">
+                <div class="note">Day 69 - Grateful For Her ✨</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 70 - Kadhalil Karaidhal ❤️‍🩹','(05/02/2025) Un ninaival en suyaninaivai iladhaen 🤕')" style="top: 3600px;">
+                <div class="note">Day 70 - Melted In My Love 💗</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 71 - Praptham 😔','(06/02/2025) Avalai kayapadutha muyandru ennai kayapaduthinaen 🥺')" style="top: 3650px;">
+                <div class="note">Day 71 - I Hurt The One I Love 🥺</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 72 - Kadhalum Manipum 💓','(07/02/2025) Enna naan seivaen unoduh serah 🫂')" style="top: 3700px;">
+                <div class="note">Day 72 - Lost In Her Absence 💕</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 73 - Yekkam ❤️‍🩹','(08/02/2025) Nee vendum enoduh 🤗')" style="top: 3750px;">
+                <div class="note">Day 73 - Yearning For Her ❤️‍🩹</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 74 - Unakagah Irupaen 💖','(09/02/2025) Ipoludhum, epoludhum unudane irukah vendinaen 🙏🏼')" style="top: 3800px;">
+                <div class="note">Day 74 - Always Yours 🫂</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 75 - Thanimaiyil Thathalithaen 🫥','(10/02/2025) Manadhurugi kadhalika varthaigal thevai illai 🙃')" style="top: 3850px;">
+                <div class="note">Day 75 - Silence Said It All 🫥</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 76 - En kadhali Moulia ✨','(11/02/2025) Unadhu peyarai solli magilthaen 😄, adhanai idhaya pazhagaiyil porithu vaithaen 🪈✍🏼')" style="top: 3900px;">
+                <div class="note">Day 76 - Mon Amour Moulia ✨</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Day 77 - Unakenah Or Kaditham 💌','(12/02/2025) Idhayathin vayulagah sollah vandha kadhalai, Inaiyathin vayulagah tharugiraen 😘')" style="top: 3950px;">
+                <div class="note">Day 77 - Love_For_Moulia.Com</div>
+            </div>
+            <div class="branch left" onclick="showPopup('Day 78 - Edhirpaarah Nigalvugal 🙃','(13/02/2025) Nee enai nesithalum, veruthalum en kadhal maaradhu💜. Namai pirikah evaralum iyaladhu, Endrum unmeedhu kadhaludan Naan! 🥰😘...💖')" style="top: 4000px;">
+                <div class="note">Day 78 - A Twist Of Fate 🔀</div>
+            </div>
+            <div class="branch right" onclick="showPopup('Avaludan Enadhu Payanam Thodarum 💖','Next Year kuh unnakuh pidicha mari nalla present tharaen 😉')" style="top: 4050px;">
+                <div class="note">Nee😏, Naan🤓, Naam🫱🏻‍🫲🏽</div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="popup" class="popup">
+        <h2 id="popup-title"></h2>
+        <p id="popup-message"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <div id="surprisePopup" class="popup">
+        <h2> SelvinRaj, Mon Mari/Amour 🎉</h2>
+        <p>👆🏼 sentence enkittah vandhu solluh, Nee kekurah Gift Tharaen! 💖</p>
+        <button onclick="closeSurprise()">Close</button>
+    </div>
+
+    <button onclick="showSurprise()" style="float: right;">🎁 Touch Me 🫵🏼</button>
+
+    <script>
+        const startDate = new Date("2024-11-28");
+        function updateCounter() {
+            const today = new Date();
+            const difference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+            document.getElementById("counter").innerText = `Together for: ${difference} days ❤️`;
+        }
+        updateCounter();
+        setInterval(updateCounter, 86400000);
+
+        function showPopup(title, message) {
+            document.getElementById("popup-title").innerText = title;
+            document.getElementById("popup-message").innerText = message;
+            document.getElementById("popup").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        function showSurprise() {
+            document.getElementById("surprisePopup").style.display = "block";
+        }
+        function closeSurprise() {
+            document.getElementById("surprisePopup").style.display = "none";
+        }
+        function createFlowers() {
+            for (let i = 0; i < 5; i++) {
+                let flower = document.createElement("div");
+                flower.innerHTML = "🌸";
+                flower.classList.add("falling-flower");
+                flower.style.left = Math.random() * 100 + "vw";
+                document.body.appendChild(flower);
+                setTimeout(() => { flower.remove(); }, 10000);
+            }
+        }
+        setInterval(createFlowers, 3000);
+    </script>
+    <div class="nextp">
+        <a href="memories.html">Pinokki Polamah 😏</a>
+    </div>
+</body>
+</html>
